@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { apiService } from "./services";
+import { API_SERVICE_URL } from "./config/api";
+
+apiService.configure(API_SERVICE_URL);
 
 ReactDOM.render(
   <React.StrictMode>

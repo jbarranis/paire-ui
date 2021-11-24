@@ -1,12 +1,33 @@
 import React from 'react';
-import { Card } from '@paire/card';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 import './App.css';
+import { AuthProvider } from "./components/AuthProvider";
+import { PrivateRoute } from "./components/PrivateRoute";
+// import { NotFound } from "./components/NotFound";
+import { Home } from './pages/Home';
+import { Login } from './pages/Login';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <Card text="card from paire bit components!" />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 
+// TODO - move to bit
 export const ErrorModal = () => {
   const isVisible = false;
 

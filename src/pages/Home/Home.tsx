@@ -6,13 +6,13 @@ import { useAuth } from "../../contexts";
 export function Home() {
   const auth = useAuth();
 
-  const logoutClick = async () => {
-    await auth.signout();
+  const logoutClick = () => {
+    auth.signout();
   };
 
   return (
     <div className="App">
-      <Card text={`card from paire bit components! Welcome ${auth.user?.first_name}`} />
+      <Card text={`card from paire bit components! Welcome ${auth.user?.firstName}`} />
       <button onClick={logoutClick}>Logout</button>
     </div>
   )

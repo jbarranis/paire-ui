@@ -30,7 +30,6 @@ export function* logoutApi(): any {
   } catch (e) {
     yield handleError("Logout Error", e);
   } finally {
-    console.log("OUT")
     yield put(logout());
   }
 }
